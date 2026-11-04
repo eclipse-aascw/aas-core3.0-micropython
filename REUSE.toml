@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
+version = 1
+
+# Files which can not carry a comment header (e.g., JSON) or where a header
+# would end up in the rendered output (e.g., README shown on PyPI).
+[[annotations]]
+path = ["AUTHORS", "README.rst", "package.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023 aas-core3.0-micropython AUTHORS"
+SPDX-License-Identifier = "MIT"

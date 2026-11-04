@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-python AUTHORS
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
+
 from aas_core3 import enum as aas_enum
 
 

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-python AUTHORS
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 """Manipulate and de/serialize Asset Administration Shells in Micropython."""
 
 # Synchronize with __init__.py and changelog.rst!

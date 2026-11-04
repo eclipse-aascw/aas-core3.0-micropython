@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 """Patch the original aas-core-python SDK so that it can run on Micropython."""
 
 import argparse
@@ -28,6 +32,28 @@ from icontract import ensure
 sys.path.append(str(pathlib.Path(os.path.realpath(__file__)).parent.parent))
 
 from dev_scripts import patching
+
+# NOTE (aaronzi, 2026-11-04):
+# The generated files are derived from aas-core3.0-python, so we attribute both
+# the upstream and this repository. The header is (re-)prepended to every generated
+# file as the comments from the source are partially stripped during the patching.
+#
+# REUSE-IgnoreStart
+_LICENSE_HEADER = """\
+# SPDX-FileCopyrightText: 2023 aas-core3.0-python AUTHORS
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
+"""
+# REUSE-IgnoreEnd
+
+_LEADING_SPDX_COMMENTS_RE = re.compile(r"\A(?:#\s*(?:SPDX-[A-Za-z-]+:.*)?\n|\n)*")
+
+
+def _prepend_license_header(text: str) -> str:
+    """Replace any leading SPDX comment block in ``text`` with our license header."""
+    return _LICENSE_HEADER + _LEADING_SPDX_COMMENTS_RE.sub("", text, count=1)
 
 
 def check_source_file_exists_and_panic_if_not(path: pathlib.Path) -> None:
@@ -155,7 +181,7 @@ def patch_setup_py(
         )
 
     new_text = patching.apply_patches(patches=patches, text=atok.text)
-    tgt_pth.write_text(new_text, encoding="utf-8")
+    tgt_pth.write_text(_prepend_license_header(new_text), encoding="utf-8")
     return None
 
 
@@ -234,7 +260,7 @@ def patch_init_py(
     tgt_pth.parent.mkdir(exist_ok=True)
 
     new_text = patching.apply_patches(patches, atok.text)
-    tgt_pth.write_text(new_text, encoding="utf-8")
+    tgt_pth.write_text(_prepend_license_header(new_text), encoding="utf-8")
 
     return None
 
@@ -1097,7 +1123,7 @@ def _produce_stub_file(
         return errors
 
     assert text is not None
-    target_path.write_text(text, encoding="utf-8")
+    target_path.write_text(_prepend_license_header(text), encoding="utf-8")
     return None
 
 
@@ -1110,7 +1136,7 @@ def _produce_implementation_file(
         return errors
 
     assert text is not None
-    target_path.write_text(text, encoding="utf-8")
+    target_path.write_text(_prepend_license_header(text), encoding="utf-8")
     return None
 
 
