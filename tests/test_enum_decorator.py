@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 """Test that we can apply a decorator on a class."""
 
 import os

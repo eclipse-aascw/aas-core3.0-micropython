@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd $SCRIPT_DIR
 AAS_CORE3_MICROPYTHON_REPO=`dirname $SCRIPT_DIR` micropython test_examples.py

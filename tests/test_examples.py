@@ -1,5 +1,9 @@
 #!/usr/bin/env micropython
 
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 import json
 import os
 import sys

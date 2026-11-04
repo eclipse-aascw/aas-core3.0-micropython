@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 aas-core3.0-python AUTHORS
+# SPDX-FileCopyrightText: 2023 aas-core3.0-micropython AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
 """
 Provide an implementation of the Asset Administration Shell (AAS) V3.0.
 
