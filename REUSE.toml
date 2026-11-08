@@ -11,3 +11,17 @@ path = ["AUTHORS", "README.rst", "package.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2023 aas-core3.0-micropython AUTHORS"
 SPDX-License-Identifier = "MIT"
+
+# The meta-model and the code generated from it transcribe the AAS
+# specification: the docstrings and the doc comments derived from them quote
+# the definitions of the classes, attributes and constraints. That text keeps
+# the license of the specification, next to the MIT license of our own code.
+# The specifications published by IDTA are licensed under CC BY 4.0.
+[[annotations]]
+path = [
+    "aas_core3/constants.pyi",
+    "aas_core3/types.pyi",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Industrial Digital Twin Association e. V."
+SPDX-License-Identifier = "CC-BY-4.0"
